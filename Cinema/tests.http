@@ -1,0 +1,44 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api
+
+# создание продукта
+POST {{baseUrl}}/orders/
+Content-Type: application/json
+
+{
+  "movie": 1,
+  "client": 1,
+  "rental_start_date": "2022-05-01",
+  "rental_end_date": "2022-05-07",
+  "rental_cost": "50.00"
+}
+
+###
+
+# GET request to retrieve all orders
+GET {{baseUrl}}/orders/
+
+###
+
+# GET request to retrieve a specific order
+GET {{baseUrl}}/orders/1/
+
+###
+
+# PUT request to update a specific order
+PUT {{baseUrl}}/orders/1/
+Content-Type: application/json
+
+{
+  "movie": 1,
+  "client": 1,
+  "rental_start_date": "2022-05-01",
+  "rental_end_date": "2022-05-10",
+  "rental_cost": "75.00"
+}
+
+###
+
+# DELETE request to delete a specific order
+DELETE {{baseUrl}}/orders/1/

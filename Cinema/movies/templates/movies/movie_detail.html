@@ -1,0 +1,43 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="mt-5 mb-4">{{ movie.title }}</h1>
+        <table class="table">
+          <tr>
+            <th>Год</th>
+            <td>{{ movie.year }}</td>
+          </tr>
+          <tr>
+            <th>Жанр</th>
+            <td>{{ movie.genre }}</td>
+          </tr>
+          <tr>
+            <th>Режисер</th>
+            <td>{{ movie.director }}</td>
+          </tr>
+          <tr>
+            <th>Актеры</th>
+            <td>
+              {% for actor in movie.actors.all %}
+                {{ actor }}{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <th>Описание</th>
+            <td>{{ movie.description }}</td>
+          </tr>
+          <tr>
+            <th>Продолжительность</th>
+            <td>{{ movie.duration }}</td>
+          </tr>
+        </table>
+        <a href="{% url 'movie_update' movie.pk %}" class="btn btn-sm btn-warning">Редактировать</a>
+        <a href="{% url 'movie_delete' movie.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

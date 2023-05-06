@@ -1,0 +1,93 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="mt-5 mb-4">{% if form.instance.pk %}Редактировать{% else %}Добавить{% endif %} Фильм</h1>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Название:</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.title.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.year.id_for_label }}">Год:</label>
+            {{ form.year }}
+            {% if form.year.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.year.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.genre.id_for_label }}">Жанр:</label>
+            {{ form.genre }}
+            {% if form.genre.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.genre.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.director.id_for_label }}">Режисер:</label>
+            {{ form.director }}
+            {% if form.director.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.director.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.actors.id_for_label }}">Актеры:</label>
+            {{ form.actors }}
+            {% if form.actors.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.actors.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Описание:</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.description.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.duration.id_for_label }}">Продолжительность:</label>
+            {{ form.duration }}
+            {% if form.duration.errors %}
+              <div class="invalid-feedback">
+                {% for error in form.duration.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <a href="{% url 'movie_list' %}" class="btn btn-secondary">Отмена</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
