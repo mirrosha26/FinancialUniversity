@@ -53,12 +53,12 @@
 ### Заказы
 
 Для работы с заказами можно использовать API.
-Хорошо, вот примеры API-запросов только для модели заказов:
+Вот примеры API-запросов только для модели заказов:
 
 #### Создание заказа
 POST http://localhost:8000/api/orders/
 Content-Type: application/json
-
+```
 {
   "movie": 1,
   "client": 1,
@@ -66,6 +66,7 @@ Content-Type: application/json
   "rental_end_date": "2022-05-07",
   "rental_cost": "50.00"
 }
+```
 
 #### Получение списка заказов
 GET http://localhost:8000/api/orders/
@@ -76,7 +77,7 @@ GET http://localhost:8000/api/orders/1/
 #### Обновление информации о заказе
 PUT http://localhost:8000/api/orders/1/
 Content-Type: application/json
-
+```
 {
   "movie": 1,
   "client": 1,
@@ -84,6 +85,6 @@ Content-Type: application/json
   "rental_end_date": "2022-05-10",
   "rental_cost": "75.00"
 }
-
+```
 #### Удаление заказа
 DELETE http://localhost:8000/api/orders/1/
